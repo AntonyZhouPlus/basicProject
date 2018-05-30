@@ -17,7 +17,7 @@ import java.util.Scanner;
  * 4.通过键盘录入日期字符串，格式(2015-10-20)
  * 如输入：2015-10-20，输出"2015年--10月--20日 是 星期二，是2015年的第 293 天"
  */
-public class test03 {
+public class Test03 {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
         String str = "2015-10-20";

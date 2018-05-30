@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * 输入的字符串为：	java12haha3嘻嘻54
  * 字符串中的数字和为：	69
  */
-public class test06 {
+public class Test06 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入带数字的一句话");
@@ -35,7 +35,7 @@ public class test06 {
         String[] split = sb.toString().split("\\*");
 
         for (int i = 0; i < split.length; i++) {
-            if (!split[i].equals("")) {
+            if (!"".equals(split[i])) {
                 sum += Integer.valueOf(split[i]);
             }
         }

@@ -70,6 +70,8 @@ public class Poker {
                     case 3:
                         three.add(s);
                         break;
+                    default:
+                        break;
                 }
 
             }

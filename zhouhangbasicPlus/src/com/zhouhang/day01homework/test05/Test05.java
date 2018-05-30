@@ -12,7 +12,7 @@ import java.util.Calendar;
  * 闰年:二月有29天
  * 将日期设置为3月1号,然后倒退1天至2月底,求出2月底是多少天
  */
-public class test05 {
+public class Test05 {
     public static void main(String[] args) {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.MONTH,2);

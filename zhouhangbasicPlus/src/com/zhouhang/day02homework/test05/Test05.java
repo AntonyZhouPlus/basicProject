@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @date 2018/5/29 17:16
  * 定义一个泛型方法，此方法接收一个集合以及此集合的一个元素，返回此元素在集合中的位置，如果不存在则返回-1
  */
-public class test05 {
+public class Test05 {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);

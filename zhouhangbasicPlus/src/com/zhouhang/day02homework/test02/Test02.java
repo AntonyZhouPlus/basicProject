@@ -13,7 +13,7 @@ import java.util.Iterator;
  * 2.删除集合元素字符串中包含0-9数字的字符串(只要字符串中包含0-9中的任意一个数字就需要删除此整个字符串)
  * 3.然后利用迭代器遍历集合元素并输出
  */
-public class test02 {
+public class Test02 {
     public static void main(String[] args) {
         
         ArrayList<String> list = new ArrayList<>();

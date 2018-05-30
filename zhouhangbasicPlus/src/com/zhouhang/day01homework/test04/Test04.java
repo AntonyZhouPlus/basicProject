@@ -15,7 +15,7 @@ import java.util.Scanner;
  * 1.从键盘录入一个日期字符串,格式为 xxxx-xx-xx,代表该人的出生日期
  * 2.利用人出生日期到当前日期所经过的毫秒值计算出这个人活了多少天
  */
-public class test04 {
+public class Test04 {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你的生日（eg:2015-10-20）");
