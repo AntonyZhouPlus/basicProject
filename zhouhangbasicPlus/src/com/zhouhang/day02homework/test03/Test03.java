@@ -39,9 +39,9 @@ public class Test03 {
         for (Student student : students) {
             if(student.getScore() == max){
                 best = student;
+                System.out.println("best:"+best);
             }
         }
         System.out.println("count:"+count);
-        System.out.println("best:"+best);
     }
 }

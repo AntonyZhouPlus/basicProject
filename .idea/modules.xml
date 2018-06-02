@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/day05-code/day05-code.iml" filepath="$PROJECT_DIR$/day05-code/day05-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08-code/day08-code.iml" filepath="$PROJECT_DIR$/day08-code/day08-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/middletest/middletest.iml" filepath="$PROJECT_DIR$/middletest/middletest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../simulationtest/simulationtest.iml" filepath="$PROJECT_DIR$/../simulationtest/simulationtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhouhangbasic/zhouhangbasic.iml" filepath="$PROJECT_DIR$/zhouhangbasic/zhouhangbasic.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhouhangbasicPlus/zhouhangbasicPlus.iml" filepath="$PROJECT_DIR$/zhouhangbasicPlus/zhouhangbasicPlus.iml" />
     </modules>

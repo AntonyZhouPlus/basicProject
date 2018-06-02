@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 public class MyArrayList<E> {
     private int size;
+    // private E[] elementDate; 泛型不能new E(),这是java底层存在的问题，不能这样使用
     private Object[] elementDate;
 
     @Override
@@ -50,7 +51,10 @@ public class MyArrayList<E> {
     }
 
     public void clear() {
-        elementDate = new Object[0];
+        for (int i = 0; i < size; i++) {
+            elementDate[i] = null;
+        }
+        size = 0;
     }
 
     public boolean contains(Object o) {
