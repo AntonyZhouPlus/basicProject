@@ -3,6 +3,7 @@ package com.zhouhang.day04homework.test02;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * com.zhouhang.day04homework.Test02
@@ -27,6 +28,10 @@ public class Test02 {
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];
             map.put(c, map.get(c) == null ? 1 : map.get(c) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.print(entry.getKey()+"("+entry.getValue()+")");
         }
     }
 }

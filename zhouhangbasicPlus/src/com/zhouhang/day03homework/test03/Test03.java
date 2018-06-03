@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 
 /**
- * com.zhouhang.day03homework.test03
+ * com.zhouhang.day03homework.Test03
  *
  * @author zhouhang
  * @date 2018/6/1 下午7:38
