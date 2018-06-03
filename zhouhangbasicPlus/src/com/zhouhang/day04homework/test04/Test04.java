@@ -18,6 +18,7 @@ public class Test04 {
         HashMap<String, Float> drinkMap = new HashMap<>();
         drinkMap.put("脉动", 3.5F);
         drinkMap.put("可乐", 2.5F);
+        drinkMap.put("芬达", 4.0F);
         vm.setDrinkMap(drinkMap);
         vm.setMoney(200.0F);
 

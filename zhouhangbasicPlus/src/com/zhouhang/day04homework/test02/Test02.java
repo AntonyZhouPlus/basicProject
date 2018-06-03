@@ -33,5 +33,6 @@ public class Test02 {
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             System.out.print(entry.getKey()+"("+entry.getValue()+")");
         }
+        
     }
 }
