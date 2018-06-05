@@ -26,6 +26,10 @@ import java.util.*;
 public class Test04 {
     static int[] arr = {10, 5, 20, 50, 100, 200, 500, 800, 2, 80, 300, 700};
     static ArrayList<Integer> list = new ArrayList<>();
+    static ArrayList<Integer> list1 = new ArrayList<>();
+    static ArrayList<Integer> list2 = new ArrayList<>();
+    static int count1 = 0;
+    static int count2 = 0;
 
     static {
         for (int i = 0; i < arr.length; i++) {
@@ -35,7 +39,6 @@ public class Test04 {
 
     public static void main(String[] args) {
         Random rd = new Random();
-
         Runnable r = new Runnable() {
             @Override
             public void run() {
@@ -44,7 +47,15 @@ public class Test04 {
                         if (list.size() > 0) {
                             int index = rd.nextInt(list.size());
                             int reward = list.remove(index);
-                            System.out.println(Thread.currentThread().getName() + " 又产生了一个 " + reward + " 元大奖");
+                            String name = Thread.currentThread().getName();
+                            if ("抽奖箱1".equals(name)) {
+                                count1++;
+                                list1.add(reward);
+                            } else if ("抽奖箱2".equals(name)) {
+                                count2++;
+                                list2.add(reward);
+                            }
+                            System.out.println(name + " 又产生了一个 " + reward + " 元大奖");
                         } else {
                             break;
                         }
@@ -55,5 +66,69 @@ public class Test04 {
 
         new Thread(r, "抽奖箱1").start();
         new Thread(r, "抽奖箱2").start();
+
+        // 为了避免提前统计，新建线程等待1秒后统计
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                   sleep(1000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                print(list1,"抽奖箱1");
+                print(list2,"抽奖箱2");
+            }
+        }.start();
+        /*抽奖箱1 又产生了一个 800 元大奖
+        抽奖箱1 又产生了一个 50 元大奖
+        抽奖箱1 又产生了一个 80 元大奖
+        抽奖箱1 又产生了一个 5 元大奖
+        抽奖箱1 又产生了一个 2 元大奖
+        抽奖箱2 又产生了一个 300 元大奖
+        抽奖箱2 又产生了一个 10 元大奖
+        抽奖箱2 又产生了一个 500 元大奖
+        抽奖箱2 又产生了一个 20 元大奖
+        抽奖箱2 又产生了一个 100 元大奖
+        抽奖箱2 又产生了一个 700 元大奖
+        抽奖箱2 又产生了一个 200 元大奖
+        此次抽奖过程中，抽奖箱1总共产生了5个奖项，分别为：800 ,50 ,80 ,5 ,2 ,最高奖项为800元，总计额为937元
+        此次抽奖过程中，抽奖箱2总共产生了7个奖项，分别为：300 ,10 ,500 ,20 ,100 ,700 ,200 ,最高奖项为700元，总计额为1830元*/
+
+    }
+
+    private static void print(ArrayList<Integer> list,String name){
+        StringBuilder sb = new StringBuilder();
+
+        int max = 0;
+        try {
+            max = list.get(0);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(name+"没抽中奖");
+        }
+        int sum = 0;
+
+        sb.append("此次抽奖过程中，");
+        sb.append(name);
+        if ("抽奖箱1".equals(name)) {
+            sb.append("总共产生了"+count1+"个奖项，分别为：");
+            for (Integer i : list) {
+                max = max > i ? max : i;
+                sum += i;
+                sb.append(i).append(" ,");
+            }
+            sb.append("最高奖项为").append(max).append("元，总计额为").append(sum).append("元");
+        }
+        if ("抽奖箱2".equals(name)) {
+            sb.append("总共产生了"+count2+"个奖项，分别为：");
+            for (Integer i : list) {
+                max = max > i ? max : i;
+                sum += i;
+                sb.append(i).append(" ,");
+            }
+            sb.append("最高奖项为").append(max).append("元，总计额为").append(sum).append("元");
+        }
+
+        System.out.println(sb);
     }
 }
