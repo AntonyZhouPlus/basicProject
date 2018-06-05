@@ -24,8 +24,9 @@ import java.util.*;
  * 在此次抽奖过程中，抽奖箱2总共产生了6个奖项，分别为：5,50,200,800,80,700最高奖项为800元，总计额为1835元
  */
 public class Test04 {
-    static int[] arr = {10,5,20,50,100,200,500,800,2,80,300,700};
-    static ArrayList<Integer> list= new ArrayList<>();
+    static int[] arr = {10, 5, 20, 50, 100, 200, 500, 800, 2, 80, 300, 700};
+    static ArrayList<Integer> list = new ArrayList<>();
+
     static {
         for (int i = 0; i < arr.length; i++) {
             list.add(arr[i]);
@@ -35,15 +36,16 @@ public class Test04 {
     public static void main(String[] args) {
         Random rd = new Random();
 
-        Runnable r = new Runnable(){
+        Runnable r = new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     synchronized (this) {
-                        int index = rd.nextInt(list.size());
-                        int reward = list.remove(index);
-                        System.out.println(Thread.currentThread().getName()+" 又产生了一个 "+reward+" 元大奖");
-                        if (list.size()==0) {
+                        if (list.size() > 0) {
+                            int index = rd.nextInt(list.size());
+                            int reward = list.remove(index);
+                            System.out.println(Thread.currentThread().getName() + " 又产生了一个 " + reward + " 元大奖");
+                        } else {
                             break;
                         }
                     }
@@ -51,7 +53,7 @@ public class Test04 {
             }
         };
 
-        new Thread(r,"抽奖箱1").start();
-        new Thread(r,"抽奖箱2").start();
+        new Thread(r, "抽奖箱1").start();
+        new Thread(r, "抽奖箱2").start();
     }
 }
