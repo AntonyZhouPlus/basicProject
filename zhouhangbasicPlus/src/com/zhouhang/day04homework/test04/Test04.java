@@ -3,7 +3,7 @@ package com.zhouhang.day04homework.test04;
 import java.util.HashMap;
 
 /**
- * com.zhouhang.day04homework.test04
+ * com.zhouhang.day04homework.Test04
  *
  * @author zhouhang
  * @date 2018/6/3 上午10:00
