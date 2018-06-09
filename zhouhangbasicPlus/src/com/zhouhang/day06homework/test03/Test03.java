@@ -1,7 +1,7 @@
 package com.zhouhang.day06homework.test03;
 
 /**
- * com.zhouhang.day06homework.Test03
+ * com.zhouhang.day06homework.TestFolderLength
  *
  * @author zhouhang
  * @date 2018/6/5 下午6:58
@@ -10,7 +10,7 @@ package com.zhouhang.day06homework.test03;
 public class Test03 {
     public static void main(String[] args) {
         Runnable r = new Runnable() {
-            int i = 0;
+            private int i = 1;
 
             @Override
             public void run() {

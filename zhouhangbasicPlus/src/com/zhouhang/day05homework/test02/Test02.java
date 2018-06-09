@@ -1,7 +1,7 @@
 package com.zhouhang.day05homework.test02;
 
 /**
- * com.zhouhang.day05homework.Test02
+ * com.zhouhang.day05homework.Test
  *
  * @author zhouhang
  * @date 2018/6/4 下午8:16

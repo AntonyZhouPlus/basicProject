@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 
 /**
- * com.zhouhang.day03homework.Test03
+ * com.zhouhang.day03homework.TestFolderLength
  *
  * @author zhouhang
  * @date 2018/6/1 下午7:38

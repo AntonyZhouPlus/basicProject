@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 /**
- * com.zhouhang.day03homework.Test02
+ * com.zhouhang.day03homework.Test
  *
  * @author zhouhang
  * @date 2018/6/1 下午4:02

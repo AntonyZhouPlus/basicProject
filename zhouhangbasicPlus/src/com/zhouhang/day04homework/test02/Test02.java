@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * com.zhouhang.day04homework.Test02
+ * com.zhouhang.day04homework.Test
  *
  * @author zhouhang
  * @date 2018/6/2 下午8:43

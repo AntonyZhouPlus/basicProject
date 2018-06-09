@@ -1,7 +1,7 @@
 package com.zhouhang.day06homework.test03;
 
 /**
- * com.zhouhang.day06homework.test03
+ * com.zhouhang.day06homework.TestFolderLength
  *
  * @author zhouhang
  * @date 2018/6/5 下午8:07

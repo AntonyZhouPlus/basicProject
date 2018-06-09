@@ -1,6 +1,8 @@
 package com.zhouhang.day06homework.test04;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * com.zhouhang.day06homework.Test04
@@ -24,12 +26,13 @@ import java.util.*;
  * 在此次抽奖过程中，抽奖箱2总共产生了6个奖项，分别为：5,50,200,800,80,700最高奖项为800元，总计额为1835元
  */
 public class Test04 {
-    static int[] arr = {10, 5, 20, 50, 100, 200, 500, 800, 2, 80, 300, 700};
-    static ArrayList<Integer> list = new ArrayList<>();
-    static ArrayList<Integer> list1 = new ArrayList<>();
-    static ArrayList<Integer> list2 = new ArrayList<>();
-    static int count1 = 0;
-    static int count2 = 0;
+    private static int[] arr = {10, 5, 20, 50, 100, 200, 500, 800, 2, 80, 300, 700};
+    private static ArrayList<Integer> list = new ArrayList<>();
+    private static ArrayList<Integer> list1 = new ArrayList<>();
+    private static ArrayList<Integer> list2 = new ArrayList<>();
+    private static Random rd = new Random();
+    private static int count1 = 0;
+    private static int count2 = 0;
 
     static {
         for (int i = 0; i < arr.length; i++) {
@@ -38,16 +41,23 @@ public class Test04 {
     }
 
     public static void main(String[] args) {
-        Random rd = new Random();
+
         Runnable r = new Runnable() {
             @Override
             public void run() {
                 while (true) {
-                    synchronized (this) {
+                    synchronized (arr) {
                         if (list.size() > 0) {
                             int index = rd.nextInt(list.size());
                             int reward = list.remove(index);
                             String name = Thread.currentThread().getName();
+
+                            try {
+                                Thread.sleep(99);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
                             if ("抽奖箱1".equals(name)) {
                                 count1++;
                                 list1.add(reward);
@@ -57,6 +67,7 @@ public class Test04 {
                             }
                             System.out.println(name + " 又产生了一个 " + reward + " 元大奖");
                         } else {
+                            arr.notify();
                             break;
                         }
                     }
@@ -68,16 +79,18 @@ public class Test04 {
         new Thread(r, "抽奖箱2").start();
 
         // 为了避免提前统计，新建线程等待1秒后统计
-        new Thread(){
+        new Thread("统计员"){
             @Override
             public void run() {
-                try {
-                   sleep(1000L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                print(list1,"抽奖箱1");
-                print(list2,"抽奖箱2");
+                    synchronized (arr) {
+                        try {
+                            arr.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        print(list1,"抽奖箱1");
+                        print(list2,"抽奖箱2");
+                    }
             }
         }.start();
         /*抽奖箱1 又产生了一个 800 元大奖
@@ -105,6 +118,7 @@ public class Test04 {
             max = list.get(0);
         } catch (IndexOutOfBoundsException e) {
             System.out.println(name+"没抽中奖");
+            return;
         }
         int sum = 0;
 
