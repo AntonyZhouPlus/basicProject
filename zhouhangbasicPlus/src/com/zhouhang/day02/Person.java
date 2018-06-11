@@ -1,12 +1,14 @@
 package com.zhouhang.day02;
 
+import java.io.Serializable;
+
 /**
  * basicProject
  *
  * @author Zhouhang Anthony
  * @date 2018/5/29 16:20
  */
-public class Person {
+public class Person implements Serializable {
     private String name;
     private int age;
 

@@ -2,7 +2,7 @@ package com.zhouhang.day02homework.test04;
 
 /**
  * basicProject
- * test git
+ * Test git
  * @author Zhouhang Anthony
  * @date 2018/5/30 10:36
  * 已知有以下类的继承关系：

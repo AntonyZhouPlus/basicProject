@@ -29,7 +29,7 @@ public class PropertiesDemo {
         p.setProperty("B","2");
         p.setProperty("C","3");
         FileWriter fw = new FileWriter("store.txt");
-        p.store(fw,"test");
+        p.store(fw,"Test");
         fw.close();
     }
 
