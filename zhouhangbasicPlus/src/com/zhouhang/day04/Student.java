@@ -1,12 +1,15 @@
 package com.zhouhang.day04;
 
+import java.io.Serializable;
+
 /**
  * com.zhouhang.day04
  *
  * @author zhouhang
  * @date 2018/6/2 下午4:45
  */
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student>,Serializable {
+//    private static final long serialVersionUID = 123;
     private String name;
     private int age;
     private int score;

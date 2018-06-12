@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * com.zhouhang.test02
+ * com.zhouhang.Test02
  *
  * @author zhouhang
  * @date 2018/6/8 下午8:14

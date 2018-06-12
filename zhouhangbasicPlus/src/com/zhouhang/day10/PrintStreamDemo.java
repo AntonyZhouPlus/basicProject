@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * @author zhouhang
  * @date 2018/6/11 下午5:22
  */
-public class PrintStream {
+public class PrintStreamDemo {
     public static void main(String[] args) throws IOException {
         File file = new File("a.txt");
         file.createNewFile();
