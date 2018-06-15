@@ -3,7 +3,7 @@ package com.zhouhang.day08homework.test05;
 import java.io.File;
 
 /**
- * com.zhouhang.day08homework.test05
+ * com.zhouhang.day08homework.Test05
  *
  * @author zhouhang
  * @date 2018/6/9 上午9:00

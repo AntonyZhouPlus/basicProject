@@ -27,12 +27,12 @@ public class Test03Server {
                     int len;
                     while ((len = bis.read(bytes)) != -1) {
                         bos.write(bytes,0,len);
-                        bos.flush();
                     }
+                    bos.flush();
                     System.out.println("back");
                     OutputStream bos2 = accept.getOutputStream();
                     bos2.write("上传成功".getBytes());
-
+//                    accept.shutdownOutput();
                     bis.close();
                     bos.close();
                     bos2.close();

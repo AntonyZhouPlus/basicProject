@@ -34,7 +34,7 @@ public class Test02 {
 
             char[] chars = it.next().toCharArray();
 
-            // best use String.charat method
+            // best use String.charat print
 
             for (int i = 0; i < chars.length; i++) {
                 if (chars[i] >= '0' && chars[i] <= '9') {

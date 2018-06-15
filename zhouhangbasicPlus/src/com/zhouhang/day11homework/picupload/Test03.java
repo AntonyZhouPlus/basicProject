@@ -14,30 +14,39 @@ import java.net.Socket;
  */
 public class Test03 {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket(InetAddress.getLocalHost(),8848);
+        Socket socket = new Socket(InetAddress.getLocalHost(), 8848);
         File file = new File("rename.jpg");
 //        File file = new File("lion.jpg");
-        if (file.length() > 1024 * 1024 * 2) {
-            System.out.println("图片过大");
-        }else {
-            BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
-            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
-            byte[] bytes = new byte[1024];
-            int len;
-            while ((len = bis.read(bytes)) != -1) {
-                bos.write(bytes,0,len);
-                bos.flush();
-            }
-            socket.shutdownOutput();
-            InputStream bis2 = socket.getInputStream();
-            byte[] back = new byte[12];
-            len = bis2.read(back);
-            System.out.println(new String(back,0,len));
-            bis2.close();
-            bis.close();
-            bos.close();
-            socket.close();
+        if(!file.exists() || !file.isFile()){
+            System.out.println("文件有误");
+            return;
         }
+        if (file.getName().endsWith(".jpg")) {
+            System.out.println("文件类型有误");
+            return;
+        }
+        if (file.length() >= 1024 * 1024 * 2) {
+            System.out.println("文件过大");
+            return;
+        }
+
+        BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+        byte[] bytes = new byte[1024];
+        int len;
+        while ((len = bis.read(bytes)) != -1) {
+            bos.write(bytes, 0, len);
+        }
+        bos.flush();
+        socket.shutdownOutput();
+        InputStream bis2 = socket.getInputStream();
+        byte[] back = new byte[12];
+        len = bis2.read(back);
+        System.out.println(new String(back, 0, len));
+        bis2.close();
+        bis.close();
+        bos.close();
+        socket.close();
 
 
     }

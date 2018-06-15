@@ -6,7 +6,7 @@ package com.zhouhang.day07.producer_consumer;
  * @author zhouhang
  * @date 2018/6/7 下午2:39
  */
-public class Consumer extends Thread {
+public class MyConsumer extends Thread {
     private Goods goods;
 
     public void setGoods(Goods goods) {
@@ -23,7 +23,7 @@ public class Consumer extends Thread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("Consumer cost the Goods");
+                    System.out.println("MyConsumer cost the Goods");
                     goods.setFlag(false);
                     goods.notify();
                 }

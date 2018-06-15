@@ -10,7 +10,7 @@ public class Test {
     public static void main(String[] args) {
         Goods goods = new Goods();
         Producer p = new Producer();
-        Consumer c= new Consumer();
+        MyConsumer c= new MyConsumer();
         p.setGoods(goods);
         c.setGoods(goods);
         p.start();
